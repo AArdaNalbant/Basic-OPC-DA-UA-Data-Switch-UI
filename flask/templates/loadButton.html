@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #popup-form {
+            margin: 0 auto;
+            text-align: left;
+            align-items: left;
+            position: fixed;
+            border: 6px solid lightseagreen;
+            background: lightblue;
+            padding: 2em;
+            width: max-content;
+            height: max-content;
+        }
+
+        #periodic {
+            overflow-y: auto;
+            margin: 0 auto;
+            text-align: left;
+            align-items: left;
+            position: fixed;
+            border: 4px solid lightseagreen;
+            background: lightblue;
+            padding: 2em;
+            width: max-content;
+            height: 35%;
+        }
+
+        #tag_trigger {
+            overflow-y: auto;
+            margin: 0 auto;
+            text-align: left;
+            align-items: left;
+            position: fixed;
+            border: 4px solid lightseagreen;
+            background: lightblue;
+            padding: 2em;
+            width: max-content;
+            height: 35%;
+        }
+
+        #file_trigger {
+            overflow-y: auto;
+            margin: 0 auto;
+            text-align: left;
+            align-items: left;
+            position: fixed;
+            border: 4px solid lightseagreen;
+            background: lightblue;
+            padding: 2em;
+            width: max-content;
+            height: 35%;
+        }
+
+        tr {
+            cursor: pointer;
+            transition: all .25s ease-in-out
+        }
+
+        .selected {
+            background-color: lightblue;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="confFile" required><br>
+        <button type="submit" name="loadFile">Select File</button>
+    </form>
+    <br>
+    <div id="everything">
+        <form method="POST">
+            OPC DA
+            <input type="radio" name="da_ua" value="0" checked>
+            OPC UA
+            <input type="radio" name="da_ua" value="1">
+            <br>
+            <div id="ogServer">
+                Define server:
+                <input type="text" name="ogSaddress" placeholder="Server Address" required>
+                <input type="text" name="ogSname" placeholder="Server Name" required>
+            </div>
+        <!--</form>
+        <form method="POST">-->
+            Is redundant?
+            <input type="checkbox" name="redundantCheckbox" value="1" onclick="redundantCheck(this)">
+            <div id="redundantServer" style="display: none">
+                <input type="text" name="redSaddress" placeholder="Server Address">
+                <input type="text" name="redSname" placeholder="Server Name">
+            </div>
+            <br>
+            <input type="submit" name="defineServer" value="Enter Server">
+            <input type="submit" id="server_remove" name="server_remove"
+                onclick="removeIndexServer();" value="Remove Server">
+        </form>
+        <br>
+        <div id="tableServers">
+            <table id="tableS" border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Address</th>
+                        <th>Server</th>
+                        <th>Redundancy</th>
+                        <th>Redundancy Address</th>
+                        <th>Redundancy Server</th>
+                        <th>Active Server</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for opt in listbox %}
+                    <tr>
+                        <td> {{ opt[0] }} </td>
+                        <td> {{ opt[1] }} </td>
+                        <td> {{ opt[2] }} </td>
+                        <td> {{ opt[3] }} </td>
+                        <td> {{ opt[4] }} </td>
+                        <td> {{ opt[5] }} </td>
+                        <td> {{ opt[6] }} </td>
+                        <td> {{ opt[7] }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <br>
+        <div>
+            <form method="POST">
+                <button type="button" onclick="addTCall();">Add
+                    Tag</button>
+            </form>
+            <form method="POST">
+                <input type="submit" id="remove" name="remove" onclick="removeIndex(); this.form.submit();"
+                    value="Remove Tag">
+                <!--<button type="button" id="remove" name="remove" onclick="enoughDammit(); this.form.submit();">Remove Tag</button>-->
+            </form>
+        </div>
+        <br>
+
+        {% if (periodic_display=='block') or (tag_trigger_display=='block') or (file_trigger_display=='block') %}
+        <script>document.getElementById('popup-form').style.display = 'block'</script>
+        {% endif %}
+        <div id="popup-form">
+            <form method="POST">
+                <input type="text" name="ipaddr" value="127.0.0.1" style="display: none">
+                <button type="submit" name="ipaddrEnter" style="display: none">Enter</button><br>
+                <select name="serverSelect">
+                    {% for opt in listbox %}
+                    <option value='{{ opt }}'>{{ opt }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="serverEnter" value="Enter server">
+                <br>
+                <input type="submit" name="periodicB" value="Periodic">
+                <input type="submit" name="tag_triggerB" value="Tag Trigger">
+                <input type="submit" name="file_triggerB" value="File Trigger">
+                <br>
+
+                <div id="periodic" style="display: {{ periodic_display }}">
+                    <select name="submitForm" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="submitForm2" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list_2 %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select><br>
+                    <input type="radio" name="times" value="std_times"
+                        onclick="document.getElementById('standartTimes').style.visibility='visible'"> Standart<br>
+                    <input type="radio" name="times" value="sp_times"
+                        onclick="document.getElementById('specialTimesInput').style.visibility='visible'"> Special
+
+                    <!-- <button type="button" id="standartTimesB" style="visibility: visible"
+                onclick="document.getElementById('standartTimes').style.visibility='visible'">Standart Times</button> -->
+
+                    <select name="standartTimes" id="standartTimes" size="6" style="visibility: hidden">
+                        {% for opt in times %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select>
+                    <!--
+			    <button type="button" id="specialTimesB" style="visibility: visible"
+				onclick="document.getElementById('specialTimesInput').style.visibility='visible'">Special Times</button>-->
+                    <input type="number" id="specialTimesInput" step="0.001" min="0" name="specialTimesInput"
+                        style="visibility: hidden">
+
+                    <button type="submit" name="times_submit" style="visibility: visible">Submit Time</button>
+                    <br>
+                    <p>{{ tag_info[0] + tag_info[1] + tag_info[2] }}</p><br>
+                    Unique Name:
+                    <input type="text" name="unique_name_input"><br>
+
+                    Scale:
+                    <input name="scaleMin" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="scaleMax" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Range:
+                    <input name="rangeMin" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="rangeMax" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Unit:
+                    <input name="unit" type="text"><br>
+
+                    <input type="submit" name="submitbutt"
+                        onclick="document.getElementById('popup-form').style.display = 'none'; this.form.submit()"
+                        value="Add Tag"><br>
+
+                    <button type="button" onclick="addTCall();">Close</button>
+                </div>
+
+                <div id="tag_trigger" style="display: {{ tag_trigger_display }}">
+                    <select name="submitForm_tagT11" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="submitForm2_tagT12" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list_2 %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select><br>
+                    <br>
+                    <p>{{ tag_trigger_info[0][0] + tag_trigger_info[0][1] + tag_trigger_info[0][2] }}</p><br>
+                    Unique Name:
+                    <input type="text" name="unique_name_input_tagTI"><br>
+
+                    Scale:
+                    <input name="scaleMin_tagT19" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="scaleMax_tagT19" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Range:
+                    <input name="rangeMin_tagT19" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="rangeMax_tagT19" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Unit:
+                    <input name="unit_tagT19" type="text"><br>
+                    <br>
+                    <input type="submit" name="submitbutt_tagT18"
+                        onclick="document.getElementById('popup-form').style.display = 'none'; this.form.submit()"
+                        value="Save Tag"><br>
+
+                    <br>
+                    <select name="submitForm_tagT21" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="submitForm2_tagT22" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list_2 %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select><br>
+                    <br>
+                    <p>{{ tag_trigger_info[1][0] + tag_trigger_info[1][1] + tag_trigger_info[1][2] }}</p><br>
+                    Unique Name:
+                    <input type="text" name="unique_name_input_tagTII"><br>
+
+                    Scale:
+                    <input name="scaleMin_tagT29" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="scaleMax_tagT29" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Range:
+                    <input name="rangeMin_tagT29" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="rangeMax_tagT29" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Unit:
+                    <input name="unit_tagT29" type="text"><br>
+                    <br>
+                    <input type="submit" name="submitbutt_tagT28"
+                        onclick="document.getElementById('popup-form').style.display = 'none'; this.form.submit()"
+                        value="Save Tag"><br>
+
+                    <br>
+                    <select name="submitForm_tagT31" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="submitForm2_tagT32" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list_2 %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select><br>
+                    <br>
+                    <p>{{ tag_trigger_info[2][0] + tag_trigger_info[2][1] + tag_trigger_info[2][2] }}</p><br>
+
+                    Unique Name:
+                    <input type="text" name="unique_name_input_tagTIII"><br>
+
+                    Scale:
+                    <input name="scaleMin_tagT39" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="scaleMax_tagT39" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Range:
+                    <input name="rangeMin_tagT39" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="rangeMax_tagT39" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Unit:
+                    <input name="unit_tagT39" type="text"><br>
+
+                    <input type="submit" name="submitbutt_tagT38"
+                        onclick="document.getElementById('popup-form').style.display = 'none'; this.form.submit()"
+                        value="Save Tag">
+                    <br>
+                    <br>
+                    <input type="submit" name="submitbutt_tagTsend"
+                        onclick="document.getElementById('popup-form').style.display = 'none'; this.form.submit()"
+                        value="Add Tags">
+
+                    <button type="button" onclick="addTCall();">Close</button>
+                </div>
+
+                <div id="file_trigger" style="display: {{ file_trigger_display }}">
+                    <input type="file" value="Select File"><br>
+                    X:
+                    <input name="x_input" type="number" min="0">
+                    Y:
+                    <input name="y_input" type="number" min="0">
+                    <br>
+                    Tag to Override:
+                    <select>
+                        {% for opt in table_data[0] %}
+                        <option value="{{ opt[1] }}">{{ opt[1] }}</option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+                    <select name="submitForm" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="submitForm2" size="6" onclick="this.form.submit()">
+                        {% for opt in opc_list_2 %}
+                        <option value='{{ opt }}'>{{ opt }}</option>
+                        {% endfor %}
+                    </select><br>
+                    <br>
+                    <p>{{ tag_info[0] + tag_info[1] + tag_info[2] }}</p><br>
+                    Unique Name:
+                    <input type="text" name="unique_name_inputF"><br>
+
+                    Scale:
+                    <input name="scaleMinF" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="scaleMaxF" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Range:
+                    <input name="rangeMinF" type="number" step="0.0001" min="0" placeholder="Min:">
+                    <input name="rangeMaxF" type="number" step="0.0001" min="0" placeholder="Max:"><br>
+                    Unit:
+                    <input name="unitF" type="text"><br>
+
+                    <input type="submit" name="submitbutt_file"
+                        onclick="document.getElementById('popup-form').style.display = 'none'; this.form.submit()"
+                        value="Add Tag"><br>
+
+                    <button type="button" onclick="addTCall();">Close</button>
+                </div>
+
+                <br>
+                <button type="button" onclick="addTCall()">Close</button>
+
+            </form>
+        </div>
+        <div id="tableFixHead">
+            <table id="table" border="1">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Unique Name</th>
+                        <th>Tag Address</th>
+                        <th>Tag Group</th>
+                        <th>Scale(Min)</th>
+                        <th>Scale(Max)</th>
+                        <th>Range(Min)</th>
+                        <th>Range(Max)</th>
+                        <th>Unit</th>
+                        <th>Sample Start</th>
+                        <th>OPC ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for opt in table_data[0] %}
+                    <tr>
+                        <td> {{ opt[0] }} </td>
+                        <td> {{ opt[1] }} </td>
+                        <td> {{ opt[2] }} </td>
+                        <td> {{ opt[3] }} </td>
+                        <td> {{ opt[4] }} </td>
+                        <td> {{ opt[5] }} </td>
+                        <td> {{ opt[6] }} </td>
+                        <td> {{ opt[7] }} </td>
+                        <td> {{ opt[8] }} </td>
+                        <td> {{ opt[9] }} </td>
+                        <td> {{ opt[10] }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table id="table_tt" border="1">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Unique Name</th>
+                        <th>Tag Address</th>
+                        <th>Scale(Min)</th>
+                        <th>Scale(Max)</th>
+                        <th>Range(Min)</th>
+                        <th>Range(Max)</th>
+                        <th>Unit</th>
+                        <th>Sample Start</th>
+                        <th>OPC ID</th>
+                        <th>Value</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for opt in table_data[1] %}
+                    <tr>
+                        <td> {{ opt[0] }} </td>
+                        <td> {{ opt[1] }} </td>
+                        <td> {{ opt[2] }} </td>
+                        <td> {{ opt[3] }} </td>
+                        <td> {{ opt[4] }} </td>
+                        <td> {{ opt[5] }} </td>
+                        <td> {{ opt[6] }} </td>
+                        <td> {{ opt[7] }} </td>
+                        <td> {{ opt[8] }} </td>
+                        <td> {{ opt[9] }} </td>
+                        <td> {{ opt[10] }} </td>
+                        <td> {{ opt[11] }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table id="table_ft" border="1">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Unique Name</th>
+                        <th>Tag Address</th>
+                        <th>Scale(Min)</th>
+                        <th>Scale(Max)</th>
+                        <th>Range(Min)</th>
+                        <th>Range(Max)</th>
+                        <th>Unit</th>
+                        <th>Sample Start</th>
+                        <th>OPC ID</th>
+                        <th>File Path</th>
+                        <th>Row</th>
+                        <th>Column</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for opt in table_data[2] %}
+                    <tr>
+                        <td> {{ opt[0] }} </td>
+                        <td> {{ opt[1] }} </td>
+                        <td> {{ opt[2] }} </td>
+                        <td> {{ opt[3] }} </td>
+                        <td> {{ opt[4] }} </td>
+                        <td> {{ opt[5] }} </td>
+                        <td> {{ opt[6] }} </td>
+                        <td> {{ opt[7] }} </td>
+                        <td> {{ opt[8] }} </td>
+                        <td> {{ opt[9] }} </td>
+                        <td> {{ opt[10] }} </td>
+                        <td> {{ opt[11] }} </td>
+                        <td> {{ opt[12] }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <form method="POST">
+            <button type="submit" name="saveAll">Save All</button>
+        </form>
+
+        <script>
+            var index;
+            var server_index;
+            var indextt;
+            var indexft;
+            var pr_tt_ft;
+            var addTagFlag = true; //true=table, false=popup
+
+            function selectedRows() {
+
+                var table = document.getElementById("table");
+
+                for (var i = 1; i < table.rows.length; i++) {
+                    table.rows[i].onclick = function () {
+                        // remove the background from the previous selected row
+                        if (typeof index !== "undefined") {
+                            table.rows[index].classList.toggle("selected");
+                        }
+                        console.log(typeof index);
+                        // get the selected row index
+                        index = this.rowIndex;
+                        pr_tt_ft = "pr"
+                        // add class selected to the row
+                        this.classList.toggle("selected");
+                        console.log(index);
+                    };
+                }
+            }
+
+            function selectedRowstt() {
+
+                var table = document.getElementById("table_tt");
+
+                for (var i = 1; i < table.rows.length; i++) {
+                    table.rows[i].onclick = function () {
+                        // remove the background from the previous selected row
+                        if (typeof indextt !== "undefined") {
+                            table.rows[indextt].classList.toggle("selected");
+                        }
+                        console.log(typeof indextt);
+                        // get the selected row index
+                        indextt = this.rowIndex;
+                        pr_tt_ft = "tt"
+                        // add class selected to the row
+                        this.classList.toggle("selected");
+                        console.log(indextt);
+                    };
+                }
+            }
+
+            function selectedRowsft() {
+
+                var table = document.getElementById("table_ft");
+
+                for (var i = 1; i < table.rows.length; i++) {
+                    table.rows[i].onclick = function () {
+                        // remove the background from the previous selected row
+                        if (typeof indexft !== "undefined") {
+                            table.rows[indexft].classList.toggle("selected");
+                        }
+                        console.log(typeof indexft);
+                        // get the selected row index
+                        indexft = this.rowIndex;
+                        pr_tt_ft = "ft"
+                        // add class selected to the row
+                        this.classList.toggle("selected");
+                        console.log(indexft);
+                    };
+                }
+            }
+
+            function selectedRows_servers() {
+
+                var table = document.getElementById("tableS");
+
+                for (var i = 1; i < table.rows.length; i++) {
+                    table.rows[i].onclick = function () {
+                        // remove the background from the previous selected row
+                        if (typeof server_index !== "undefined") {
+                            table.rows[server_index].classList.toggle("selected");
+                        }
+                        console.log(typeof server_index);
+                        // get the selected row index
+                        server_index = this.rowIndex;
+                        // add class selected to the row
+                        this.classList.toggle("selected");
+                        console.log(server_index);
+                    };
+                }
+            }
+
+            function removeIndex() {
+                if (pr_tt_ft == "pr") {
+                    var name = document.getElementById('table').rows[index].cells[1].innerHTML
+                    //print("\n\n"+name+"\n\n") opens print as pdf screen
+                    console.log(name)
+                    var time = document.getElementById('table').rows[index].cells[3].innerHTML
+                    document.getElementById('remove').value = [(index - 1).toString(), 'pr', name, time];
+                }
+                else if (pr_tt_ft == "tt") {
+                    var name = document.getElementById('table_tt').rows[indextt].cells[1]
+                    document.getElementById('remove').value = [(indextt - 1).toString(), 'tt', name];
+                }
+                else if (pr_tt_ft == "ft") {
+                    var name = document.getElementById('table_ft').rows[indexft].cells[1]
+                    document.getElementById('remove').value = [(indexft - 1).toString(), 'ft', name];
+                }
+            }
+
+            function removeIndexServer() {
+                document.getElementById('server_remove').value = server_index - 1;
+            }
+
+            function redundantCheck(elem) {
+                if (elem.checked == true) {
+                    document.getElementById('redundantServer').style.display = 'block';
+                }
+                else {
+                    document.getElementById('redundantServer').style.display = 'none';
+                }
+            }
+
+            function thisFlag() {
+                document.getElementById('popup-form').style.display = 'none';
+                document.getElementById('tableFixHead').style.display = 'block';
+            }
+
+            function addTCall() {
+                if (addTagFlag) {
+                    document.getElementById('popup-form').style.display = 'block';
+                    document.getElementById('tableFixHead').style.display = 'none';
+
+                }
+                else {
+                    document.getElementById('popup-form').style.display = 'none';
+                    document.getElementById('tableFixHead').style.display = 'block';
+                }
+                addTagFlag = !addTagFlag;
+            }
+
+            //thisFlag();
+            selectedRows_servers();
+            selectedRows();
+            selectedRowstt();
+            selectedRowsft();
+        </script>
+    </div>
+</body>
+
+</html>

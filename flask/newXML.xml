@@ -1,0 +1,1 @@
+<xml_file_start><OPC_Servers></OPC_Servers><timed_trig><st_times><group_50ms /><group_100ms /><group_250ms /><group_500ms /><group_1s/><group_5s /><group_10s /><group_1min /><group_10min /><group_60min /></st_times><sp_times /></timed_trig><tag_trig /><file_trig /></xml_file_start>

@@ -1,0 +1,1035 @@
+<xml_file_start>
+<OPC_Servers>
+<OPC_Server>
+<id>0</id>
+<type>0</type>
+<address>192.168.10.13</address>
+<server>Matrikon.OPC.Simulation.1</server>
+<redundancy>1</redundancy>
+<red_address>192.168.194.10</red_address>
+<red_server>Matrikon.OPC.Simulation.1</red_server>
+<active_server>0</active_server>
+</OPC_Server>
+<OPC_Server>
+<id>1</id>
+<type>0</type>
+<address>192.168.10.13</address>
+<server>OPCServer.DA.Simulator.1</server>
+<redundancy>0</redundancy>
+<red_address>192.168.10.13</red_address>
+<red_server>Matrikon.OPC.Simulation.1</red_server>
+<active_server>0</active_server>
+</OPC_Server>
+<OPC_Server>
+<id>2</id>
+<type>1</type>
+<address>opc.tcp://arg-1:53530/OPCUA/SimulationServer</address>
+<server>OPCServer.DA.Simulator.1</server>
+<redundancy>1</redundancy>
+<red_address>opc.tcp://pks-z:53530/OPCUA/SimulationServer</red_address>
+<red_server>OPCServer.DA.Simulator.1</red_server>
+<active_server>0</active_server>
+</OPC_Server>
+<OPC_Server><id>3</id><type>0</type><address>everything</address><server>is fine</server><redundancy>0</redundancy><red_address>everything</red_address><red_server>is fine</red_server><active_server>0</active_server></OPC_Server></OPC_Servers>
+<timed_trig>
+<st_times>
+<group_50ms><tag_0><t_name>tyyyyyyyyyy</t_name><t_addr>Simulation Items.Bucket Brigade.Boolean</t_addr><scale_max>6</scale_max><scale_min>666</scale_min><range_max>6</range_max><range_min>666</range_min><unit>gg</unit><samp_start>2019-07-29 17:42:18.153733</samp_start><OPC_ID>0</OPC_ID></tag_0></group_50ms>
+<group_100ms />
+<group_250ms />
+<group_500ms />
+<group_1s>
+<tag_1>
+<t_name>rtg_761</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_762</t_name>
+<t_addr>ns=5;s=Counter1</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>2</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_763</t_name>
+<t_addr>ns=5;s=Random1</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>2</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_7611</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7612</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7613</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_7621</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7622</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7623</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_7631</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7632</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7633</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_76451</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7642</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7643</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_7651</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7652</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7653</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_7661</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7662</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7663</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_7671</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7672</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7673</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_7681</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7682</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7683</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_7691</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7692</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7693</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_7614</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7624</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7634</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_7615</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_7625</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_7635</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+</group_1s>
+<group_5s>
+<tag_2>
+<t_name>rtg_76212</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76213</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_76111</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76112</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76113</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_76121</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76122</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76123</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_76131</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76132</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76133</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_7611</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76142</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76143</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_1>
+<t_name>rtg_76151</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76152</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76153</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_76161</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76162</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76163</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_76171</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76172</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76173</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_76181</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76182</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76183</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_76191</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76192</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76193</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_76114</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76124</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_76134</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3><tag_1>
+<t_name>rtg_76115</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_1>
+<tag_2>
+<t_name>rtg_76125</t_name>
+<t_addr>Random.Real4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>C</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_2>
+<tag_3>
+<t_name>rtg_761335</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_7234635</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_7623435</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_547635</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_764235</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_763115</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_7623135</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_764635</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_7698735</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_76709835</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_767635</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_765435</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+<tag_3>
+<t_name>rtg_768790035</t_name>
+<t_addr>Random.Boolean</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+</tag_3>
+</group_5s>
+<group_10s>
+<tag_10>
+<t_name>rtg_764</t_name>
+<t_addr>Cement Mill .Fineness</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>cm2/g</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>1</OPC_ID>
+</tag_10>
+</group_10s>
+<group_1min />
+<group_10min />
+<group_60min />
+</st_times>
+<sp_times>
+<tag_xx>
+<t_name>fsadfasdf</t_name>
+<t_addr>Random.Real8</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+<period>3</period>
+</tag_xx>
+<tag_xx>
+<t_name>fwaesf</t_name>
+<t_addr>Random.Int4</t_addr>
+<scale_max>1000</scale_max>
+<scale_min>0</scale_min>
+<range_max>1000</range_max>
+<range_min>0</range_min>
+<unit>mBar</unit>
+<samp_start>2019-06-28 10:04:25+00:00</samp_start>
+<OPC_ID>0</OPC_ID>
+<period>6</period>
+</tag_xx>
+</sp_times>
+</timed_trig>
+<tag_trig>
+<tag_trig_0>
+<tag_trigger_name>rtg_sdfds</tag_trigger_name>
+<tag_trigger_addr>Bucket Brigade.Boolean</tag_trigger_addr>
+<tag_trigger_scale_max>1000</tag_trigger_scale_max>
+<tag_trigger_scale_min>0</tag_trigger_scale_min>
+<tag_trigger_range_max>1000</tag_trigger_range_max>
+<tag_trigger_range_min>0</tag_trigger_range_min>
+<tag_trigger_unit>mBar</tag_trigger_unit>
+<tag_trigger_samp_start>2019-06-28 10:04:25+00:00</tag_trigger_samp_start>
+<tag_trigger_OPC_ID>0</tag_trigger_OPC_ID>
+<tag_trigger_value>Random.Int4</tag_trigger_value>
+<tag_trigger_ts>Bucket Brigade.String</tag_trigger_ts>
+</tag_trig_0>
+<tag_trig_1>
+<tag_trigger_name>fgdsfg</tag_trigger_name>
+<tag_trigger_addr>ns=2;s=MySwitch</tag_trigger_addr>
+<tag_trigger_scale_max>1000</tag_trigger_scale_max>
+<tag_trigger_scale_min>0</tag_trigger_scale_min>
+<tag_trigger_range_max>1000</tag_trigger_range_max>
+<tag_trigger_range_min>0</tag_trigger_range_min>
+<tag_trigger_unit>mBar</tag_trigger_unit>
+<tag_trigger_samp_start>2019-06-28 10:04:25+00:00</tag_trigger_samp_start>
+<tag_trigger_OPC_ID>2</tag_trigger_OPC_ID>
+<tag_trigger_value>ns=5;s=Counter1</tag_trigger_value>
+<tag_trigger_ts>ns=5;s=Sinusoid1</tag_trigger_ts>
+</tag_trig_1>
+</tag_trig>
+<file_trig>
+<file_trig_0>
+<file_trigger_name>rtg_7sdfs5</file_trigger_name>
+<file_trigger_addr>Bucket Brigade.Int4</file_trigger_addr>
+<file_trigger_scale_max>1000</file_trigger_scale_max>
+<file_trigger_scale_min>0</file_trigger_scale_min>
+<file_trigger_range_max>1000</file_trigger_range_max>
+<file_trigger_range_min>0</file_trigger_range_min>
+<file_trigger_unit>mBar</file_trigger_unit>
+<file_trigger_samp_start>2019-06-28 10:04:25+00:00</file_trigger_samp_start>
+<file_trigger_OPC_ID>0</file_trigger_OPC_ID>
+<file_trigger_file_path>test.ods</file_trigger_file_path>
+<file_trigger_read_row>0</file_trigger_read_row>
+<file_trigger_read_column>0</file_trigger_read_column>
+</file_trig_0>
+<file_trig_2><file_trigger_name>thverhsvr</file_trigger_name><file_trigger_addr>Simulation Items.Bucket Brigade.ArrayOfString</file_trigger_addr><file_trigger_scale_max>545</file_trigger_scale_max><file_trigger_scale_min>54545</file_trigger_scale_min><file_trigger_range_max>45</file_trigger_range_max><file_trigger_range_min>45454</file_trigger_range_min><file_trigger_unit>ggg</file_trigger_unit><file_trigger_samp_start>2019-07-29 17:43:21.485990</file_trigger_samp_start><file_trigger_OPC_ID>test_file_path</file_trigger_OPC_ID><file_trigger_file_path>0</file_trigger_file_path><file_trigger_read_row>5</file_trigger_read_row><file_trigger_read_column>55</file_trigger_read_column></file_trig_2></file_trig>
+</xml_file_start>
